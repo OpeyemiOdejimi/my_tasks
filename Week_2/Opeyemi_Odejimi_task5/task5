@@ -1,0 +1,56 @@
+# Task 1: Create and Display
+# * Ask the user to enter three favourite Nigerian dishes(one at a time)
+# * Store them in a tubple called dishes
+# * Print the tuple in a single line, separating items with commas
+# * Use the \n escape sequence to print each dish on a new line
+
+# first_dish = input("Enter Nigerian dish of your choice: ")
+# second_dish = input("Enter Nigerian dish of your choice: ")
+# third_dish = input("Enter Nigerian dish of your choice: ")
+
+# dish = (first_dish, second_dish, third_dish)
+# print("\n".join(dish))
+
+# Task 2: Tuple and Input
+#  * Ask the user for 5 best friends' names
+#  * Store them in a tuple friends
+#  * Print the tuple in reverse order
+
+# friendOne = input("Enter the name of your first best friend: ")
+# friendTwo = input("Enter the name of your second best friend: ")
+# friendThree = input("Enter the name of your third best friend: ")
+# friendFour = input("Enter the name of your fourth best friend: ")
+# friendFive = input("Enter the name of your fifth best friend: ")
+
+# friend = (friendOne, friendTwo, friendThree, friendFour, friendFive)
+
+# order = list(friend)
+# order.reverse()
+# print(order)
+
+
+# Task 3: Tuple Operations
+#  * Create a tuple of 5 Nigerian states entered by the user
+#    * Print the first state and last state
+#    * Check if "Lagos" is in the tuple and print "Yes" or "No"
+#    * Print the number of states entered.
+#           * (Hint: Use the tuple membership)
+
+# state1 = input("Enter state: ")
+# state2 = input("Enter state: ")
+# state3 = input("Enter state: ")
+# state4 = input("Enter state: ")
+# state5 = input("Enter state: ")
+# state = (state1, state2, state3, state4, state5)
+# print(f"first state is {state[0]}, and last state is {state[4]}")
+# print("Abuja" in state)
+# print("no of state entered is", len(state))
+
+# Task 4: Tuple unpacking
+#   * Ask a user for their;
+#   * First name
+#   * Age
+#   * Favorite color
+#   * Home town
+#   * Store them in a tuple profile and unpack into variable
+#   * Print and use escape sequence to align each piece
