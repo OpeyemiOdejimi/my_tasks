@@ -54,3 +54,68 @@
 #   * Home town
 #   * Store them in a tuple profile and unpack into variable
 #   * Print and use escape sequence to align each piece
+
+# print("\n\n===Task 4===")
+# first_name = input("What is your first name?: ")
+# age = int(input("What is your age?: "))
+# fav_color = input("What is your favorite color?: ")
+# home_town = input("What is your home town?: ")
+
+# profile = (first_name, age, fav_color, home_town)
+# first_name, age, fav_color, home_town = profile
+# print(f"Name:\t\t{first_name}\nAge:\t\t{age}\nFav. Color:\t{fav_color}\nHome Town:\t{home_town}")
+
+
+
+
+# Task 5: Modify Tuple Indirectly: Ask a user to enter three items for their shopping list.
+#  * Store in a tuble shopping_list.
+#  * Convert it to a list, then ask for two items to add.
+#  * Convert back to a tuple and print the updated list using join() to display items separated by "|"
+
+shop1 = input("Enter shopping item1: ")
+shop2 = input("Enter shopping item2: ")
+shop3 = input("Enter shopping item3: ")
+shopping_list = (shop1, shop2, shop3)
+conv_list = list(shopping_list)
+
+add_item = input("Add one more item: ")
+add_item2 = input("Add another item: ")
+
+conv_list.append(add_item)
+conv_list.append(add_item2)
+conv2 = tuple(conv_list)
+print(" | ".join(conv2))
+
+
+# Task ^: Attendance Tracker
+# * Write a Python porgam that;
+# * Stores the days of the week in a tuple,
+# * Stores the months of the year in another tuple.
+# * Asks the user to enter :
+#  * Student's name
+#  * Gender
+#  * Course Track
+#  * Current month number (1-12)
+#  * Current day number (1-7)
+
+print("\n\n===Task 6===")
+days_of_the_week = ("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+months_of_the_year = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+name = input("Enter Student Name: ")
+age = input("Enter Gender: ")
+course = input("Enter Course Track: ")
+month = int(input("Enter Current Month in number(1-12): ")) - 1
+day = int(input("Enter Current Day in number(1-7): ")) - 1
+
+print("Days of the week", days_of_the_week)
+print("Months of the year", months_of_the_year)
+print(f'''
+    Student Name:   {name}
+    Student Age:    {age}
+    Course Track:   {course}
+    Current Month:  {months_of_the_year[month]}
+    Current Day:    {days_of_the_week[day]}
+''')
+
+
