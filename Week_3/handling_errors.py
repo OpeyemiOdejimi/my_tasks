@@ -48,7 +48,7 @@ x = 10 / 0 # This will throw error
 
 # b. NameError - Using a variable before defining it.
 
-print(age) # age not defined
+# print(age) # age not defined
 
 # c. TypeError - Wrong data type in an operation.
 
@@ -87,9 +87,9 @@ f = open("missing.txt") # File not found
 # * It is used to wrap code that might raise an error.
 # * If no error occurs Python skips the except block.
 
-try:
-    x = 10 / 2
-    print("Result:", x)
+# try:
+#     x = 10 / 2
+#     print("Result:", x)
 
 
 # The except Block
@@ -105,7 +105,7 @@ try:
 except ZeroDivisionError: 
     print("Cannot divide by zero.")
 
-# This is a case of mulyiple exception
+# This is a case of multiple exception
 
 try:
     number = int("abc") # ValueError
@@ -115,3 +115,101 @@ except ValueError:
 
 except ZeroDivisionError:
     print(" Cannot divide by zero.")
+
+
+# The finally Block
+# * Always runs, whether an error occured or not
+# * Useful for cleanup tasks (e.g./ closing files, releasing resources).
+
+
+# IF you don't understand this line of code now, It's OK. But make sure you come back to it once we are done the *File Handling**.
+
+try:
+    f = open("sample.txt", "r")
+    content = f.read()
+
+except FileNotFoundError:
+    print("File not found.")
+
+finally:
+    print("Closing file if it was opened.")
+
+
+# Lets have more example on the application of try-except-finally, but try to read in between
+
+balance = 5000 # starting balance
+
+print("Welcome to the ATM")
+amount = input("Enter amount to withdraw: ")
+
+try:
+    amount = float(amount) # convert input to number
+
+    if amount > balance:
+        raise ValueError("Insufficient funds.")
+    
+    balance -= amount
+    print("Withdrawl successful. New balance: N", balance)
+
+except ValueError as e:
+    print("Error:", e)
+
+except Exception as e:
+    print("Unexpected error:", e)
+
+finally:
+    print("Transaction session closed.")
+
+
+# If user enters 2000
+# - Withdrawal sucessful. New balance: # 3000.0.
+# - Transaction session closed.
+
+# If user enters 6000
+
+# - Error: Insufficient funds.
+# - Transaction session closed.
+
+
+# If user enters abc
+# - Error: could not convert string to float: "abc"
+# - Transaction session closed.
+
+
+# Semantic Errors
+
+# * The code runs without crashing, but the output is logically wrong.
+# * Hardest to detect because the interpreter sees no error.
+# * Semantic errors are mostly logic mistakes, so subtypes are based on how the logic is wrong.
+# * Note that semantic errors are not officially exceptions in Python, but they are real mistakes programmers make when the logic is wrong.
+
+# Common Subtypes of Semantic Errors
+
+# Wrong condition in Logic
+
+age = 18
+if age > 18:  # Should be >=
+    print("ELigible to vote")
+else:
+    print("Not eligible")
+
+
+# Output: Not eligible (wrong result)
+
+# Wrong Formula/Computation
+
+length = 10
+width = 5
+area = length + width # should be multiplication
+print("Area:", area)
+
+
+# output: 15 (expected 50)
+
+# Wrong Variable Usage
+
+marks = [70, 80, 90]
+total = marks[0] * marks[1] * marks[2] # wrong should be sum
+print("Total:", total)
+
+#To fix semantic errors carefully review logic, test with multiple cases, use debugging or print statements.
