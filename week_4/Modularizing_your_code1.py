@@ -233,4 +233,98 @@ greet()
 greet()
 greet()
 
-# Function 
+# Function Arguments and Parameters
+# * Arguments are variables you add inside the function parenthesis when defining the function (placeholders). Sometimes, they can be optional.
+# * Paramters are the actual values you pass inside the function parenthesis when calling the function.
+
+
+# Function with an argument - the placeholder
+
+def greet(name):
+    print("Hello", name, "Welcome to Python learning!")
+
+
+# Calling with paramter- the actual name
+greet("Class rep")
+greet("Ridwan")
+
+
+# When to Use return, print(), and yield keywords inside a function
+
+# * a. print()
+# * You can use it if you are just interested in displaying your output (Not Storing). It does not give back a value you can use later.
+
+# Think of it like shouting information out loud, but not recording it for reference purpose.
+# * So you use it when you just want to show the results to the user. Example: printing menus, reports, or logs.
+
+def greet(name):
+    print("Hello", name)
+
+
+# Function call
+result = greet("Esther")
+
+# You will notice that it did not store the name
+print("Result:", result)
+
+# b. return
+# * You cam use it if you want to give back a value
+# * return sends a value back to the function caller.
+# * The function ends immediately once it hits return
+# * Think of it like filling a form and handling it back, the caller now owns the result and can reuse it.
+# So you can use return when you need the result for further computation or storage. For example, mah=th calculations, data processing, formatting text.
+
+
+def add(a, b):
+    return a + b
+
+# Function call
+
+result = add(4, 6)
+print("The sum is:", result)
+
+# Note the output and compare it with that of print()
+
+
+# 3. yield
+# - This is used for producing a sequence (Generators)
+#   * yield works like return, but instead of ending the function, it pauses it and remembers its state.
+#   * Next time you call it, it returns from where it stopped.
+#   * This creates a generator.
+#   You can use it when working with large data or infinite sequences.
+
+
+def count_up_to(n):
+    i = 1
+    while i <= n:
+        yield i   # pause and return i
+        i += 1
+
+# Using the generatoir
+for number in count_up_to(5):
+    print(number)
+
+# Note the output: Instead of giving all numbers at once, the function yields them one at a time.
+# 1
+# 2
+# 3
+# 4
+# 5
+
+
+# More on Function Arguments(Types of Arguments)
+#   * Functions can accept different types of arguments depending on how we want to pass data. Understanding these makes functions flexible and powerful.
+
+# 1. Positional Arguments
+#   * These are the most common.
+#   * The order matters: value are assigned to parameters in the same order as they appear.
+#   * Think of it like lining up children in the same order as roll call.
+
+
+def introduce(name, track):
+    print("My name is", name)
+    print("I am learning", track, ".")
+
+
+# function call
+introduce("Ngozi")
