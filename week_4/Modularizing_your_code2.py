@@ -144,4 +144,149 @@ print("20 / 5 =", first.divide(20, 5))
 # lets use the functions in the second.py file
 print("\m=== String Functions ===")
 print(second.greet("Ridwan"))
-print("Reverse of 'Python' =", second.reverse_sr
+print("Reverse of 'Python' =", second.reverse_string("Python"))
+print("Character count in sentence =", second.reverse_string("Python"))
+print("Word count in sentence =", second.count_words("Python modules are powerful"))
+
+
+# 4. Python Packages
+#   * What a package is (a folder with init.py)
+#   * Installing and using third-party packages (pip install requests, import requests)
+#   * Organizing multiple modules into a package
+
+
+# What is a package?
+#   * A package in Python is a way to organize related modules togther into a folder.
+#   * Inside this folder, there must be a special file called __init__.py (can be empty). This file tells Python that the folder should be treated as a package.
+#   * uhmmm, lets think of a package as a standard mechanic workshop, and each module is a different toolbox inside the workshop. The init.py file is like the label on the workshop telling passerbys that this is a mechanic workshop.
+
+# Do you understand?
+
+
+# Third-Party Packages
+#   * Python comes with some built-in modules, but you can also install extra packagecreated by others.
+# These packages are stored in the Python Package Index (PyPi).
+
+# We install them using pip (Python's package manager) or conda a
+
+# How to install Python Packages
+# 1. Using pip
+#   * This is the most common method.
+#   * It installs packages from PyPI. It is the Python's central package repository.
+
+#   * To work with it, you have to use it in ypur terminal.
+
+# pip install requests                  # Install latest version
+# pip install requests==2.28            # Install specific version
+# pip install --upgrade requests        # Upgrade existing package
+# pip unistall requests                 # Remove package
+
+
+# 2. Using uv
+#   * This is the modern, super-fast package and project manager
+#   * It is a RUST-based that unifies package installation, virtual environment and Python version management into one fast, modern CLI.
+#   * To use uv
+
+# Run this commamnd on yourn terminal depending on your OS
+# Recommended method: standalone installer
+ # macOS/Linux
+
+# curl -LsSf https://astrial.sh/uv/install.sh | sh
+
+# or
+
+# Windows
+
+# powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1  |  iex"
+
+#   * After installation, verify version
+# uv --version
+#   * Using uv to install packages
+#   * But before it works you must have a working virtual environment
+
+# uv add reqquests         # Install package and update project files
+# uv pip install flask     # Works like pip but much faster
+# uv remove requests       # Uninstall
+# uv venv                  # Create a virtual environment automatically
+# uv run script.py         # Run scripts in the managed environment
+
+
+
+# Other packages managers that you should try exploring
+
+'''
+- Other package managers that you should try exploring
+
+| Method                            | Description                     | Best For                                 |
+| --------------------------------- | ------------------------------- | ---------------------------------------- |
+| `pip install ...`                 | Standard installation from PyPI | Most common and simple use case          |
+| `pip install -r requirements.txt` | Batch install from file         | Reproducible projects                    |
+| Virtualenv + `pip`                | Isolated environments           | Independent project setups               |
+| `conda install ...`               | Data science ecosystem          | Scientific and system-level dependencies |
+| Clone + `pip install .`           | Custom or non-PyPI packages     | Local development and experiments        |
+| `.whl install`                    | Prebuilt package install        | Faster installations                     |
+| `pip install -e .`                | Editable (development) install  | Active package development               |
+| `uv ...`                          | All-in-one modern manager       | Speed, simplicity, and full workflow     |
+'''
+
+# Creating a virtual Environment
+
+#   * What is a Virtual Environment?
+
+#   * A virtual environment (venv) is an isolated workspaces where you can install and manage Python packages without affecting the global/system Python installation.
+#   * Each project can have its own dependencies,, even if they conflict with other projects.
+#   * Why should you form the habit of always creating a Venv before starting a project?
+#   * It keeps project dependencies separate.
+#   * It prevents version conflicts
+#   * It makes collaboration easier (everyone uses the same environment).
+#   * It is required in many production setups.
+
+
+# How to create a Virtual Environment
+# Create a virtual environment
+# python -m venv virtual_environment_name
+
+# This will create a folder inside your working folder with the name "virtual_environment_name"
+
+#   * To use it, you have a activate it.
+
+# 1. Click on the folder
+# 2. Look for Script and open it.
+# 3. Look for 'activate'
+# 4. Right click on it and look for copy relative path
+# 5. Click on it.
+# 6. Finally to your terminal and select Command prompt then paste the path you copied.
+
+#   * Alternatively, you can use this script.
+
+# virtual_environment_name\Scripts\activate         # For windows
+# source virtual_environment_name/bin/activate      # linux or macOS
+
+# Deactivating a virtual Environment
+
+# deactivate
+
+# Saving and Sharing Requirements
+
+# To freeze the installed packages into a file
+# pip freeze > requirements.txt
+
+# To install them later
+# pip install -r requirements.txt
+
+
+# Creating Your Package
+
+'''
+```
+my_project/
+│
+├── my_package/              # Package folder
+│   ├── __init__.py          # Makes this folder a package
+│   ├── math_utils.py        # Module 1
+│   ├── string_utils.py      # Module 2
+│
+└── main.py                  # Script that uses the package
+
+```
+'''
