@@ -867,3 +867,78 @@ class Child(Father, Mother):   # Inherits from boith parents
 child = Child()
 print(child.father_trait())  # Strong
 print(child.mother_trait())  # Caring
+
+# Benefits of Inheritance
+#   * Code Reuse: Don't write the same code multiple times
+#   * Organization: Related classes are grouped logically
+#   * maintenance: Fix bugs in parent class, all children benefit
+#   * Extensibility: Easy to add new types without changing existing code
+
+
+# How All(Absorption, Encapsulation, Inheritance) Work Together
+
+# Nigerian School Management System
+
+# Abstraction - Define what all school members should do
+from abc import ABC, abstractmethod
+
+class SchoolMember(ABC):
+    def __init__(self, name, id_number):
+        self._name = name           # Encapsulation - protected attribute
+        self._id_number = id_number # Encapsulation - protected attribute
+    
+    @abstractmethod
+    def daily_activity(self):       # Abstraction - must be implemented
+        pass
+    
+    def get_info(self):            # Common method for all
+        return f"Name: {self._name}, ID: {self._id_number}"
+
+# Inheritance - Student inherits from SchoolMember
+class Student(SchoolMember):
+    def __init__(self, name, id_number, class_level):
+        super().__init__(name, id_number)  # Inheritance
+        self.__grades = []                 # Encapsulation - private
+    
+    def daily_activity(self):              # Abstraction - implementation
+        return f"{self._name} attends classes and studies"
+    
+    def add_grade(self, subject, score):   # Encapsulation - controlled access
+        if 0 <= score <= 100:
+            self.__grades.append({"subject": subject, "score": score})
+            return f"Grade added: {subject} = {score}"
+        return "Invalid grade"
+    
+    def get_average(self):                 # Encapsulation - controlled access
+        if self.__grades:
+            total = sum(grade["score"] for grade in self.__grades)
+            return total / len(self.__grades)
+        return 0
+
+# Inheritance - Teacher inherits from SchoolMember
+class Teacher(SchoolMember):
+    def __init__(self, name, id_number, subject):
+        super().__init__(name, id_number)
+        self.__subject = subject           # Encapsulation - private
+    
+    def daily_activity(self):              # Abstraction - implementation
+        return f"{self._name} teaches {self.__subject} and grades assignments"
+    
+
+# Using all three principles together
+student = Student("Adunni Olaleye", "STU001", "SS2")
+teacher = Teacher("Mr. Emeka Nwosu", "TCH001", "Mathematics")
+
+# Polymorphism - same method, different behavior
+print(student.daily_activity())    # Student-specific activity
+print(teacher.daily_activity())    # Teacher-specific activity
+
+
+# Encapsulation - controlled access to data
+print(student.add_grade("Mathematics", 85))  # Grade added: Mathematics = 85
+print(student.add_grade("English", 78))      # Grade added: English = 78
+print(f"Average: {student.get_average()}")   # Average: 81.5
+
+
+# Can't access private data directly
+# print(student.__grades)  # This would cause an error
